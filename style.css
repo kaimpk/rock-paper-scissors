@@ -1,0 +1,33 @@
+*{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center;
+}
+button{
+    font-size: 70px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: auto;
+    
+}
+h1{
+    text-align: center;
+}
+#buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#rock{
+    width: 100px;
+    height: 100px;
+}
+
+#scissors{
+    width: 100px;
+    height: 100px;
+}
+#paper{
+    width: 100px;
+    height: 100px;
+}
