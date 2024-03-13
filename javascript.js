@@ -5,17 +5,17 @@ let isGameOver = false;
 function checkGameOver(computerScore, playerScore){
     if(playerScore ===5){
         isGameOver= true
-        return whenGameEnds(0);}
+        return whenGameEnds(1);}
         else if(computerScore === 5)
         {
             isGameOver = true;
             
-            return whenGameEnds(1);
+            return whenGameEnds(0);
      }
     }
     
 
-const displayComputerChoice = (computerSelection) =>
+const displayChoices = (computerSelection) =>
 {
     if(computerSelection === 0){
         computerChoice.textContent = "CPU CHOSE: PAPER"
@@ -44,21 +44,22 @@ const computerChoice = document.createElement('p');
 const compDiv = document.querySelector('#compChoice');
 const winMessage = document.createElement('p');
 winMessage.style.fontSize = '100px';
+const scores = document.querySelector('#scores');
 
 const whenGameEnds = (value) =>
 {
-    checkGameOver === 1 ? winMessage.textContent = 'PLAYER WINS' : winMessage.textContent = 'CPU WINS'
+    
+    value === 1 ? winMessage.textContent = 'PLAYER WINS' : winMessage.textContent = 'CPU WINS'
     winmes.appendChild(winMessage);
-    scissors.removeEventListener('click', func)
     scissors.disabled= true;
-    paper.removeEventListener('click', func)
-    rock.removeEventListener('click',  func)
+    paper.disabled = true;
+    rock.disabled = true;
 }
 
 paper.addEventListener('click', () =>{
     playerSelection = "paper";
     const computerSelection = getComputerChoice();
-    displayComputerChoice(computerSelection);
+    displayChoices(computerSelection);
     winLose.textContent = playRound(playerSelection, computerSelection)
     checkGameOver(computerScore, playerScore);
     
@@ -67,7 +68,7 @@ paper.addEventListener('click', () =>{
 scissors.addEventListener('click', () =>{
     playerSelection = "scissors";
     const computerSelection = getComputerChoice();
-    displayComputerChoice(computerSelection);
+    displayChoices(computerSelection);
     winLose.textContent = playRound(playerSelection, computerSelection)
     checkGameOver(computerScore, playerScore);
     
@@ -77,12 +78,12 @@ scissors.addEventListener('click', () =>{
 rock.addEventListener('click', () =>{
     playerSelection = "rock";
     const computerSelection = getComputerChoice();
-    displayComputerChoice(computerSelection);
+    displayChoices(computerSelection);
     winLose.textContent = playRound(playerSelection, computerSelection);
     checkGameOver(computerScore, playerScore);
 })
-results.appendChild(playerS);
-results.appendChild(computerS);
+scores.appendChild(playerS);
+scores.appendChild(computerS);
 results.appendChild(winLose);
 
 function getComputerChoice() { 
